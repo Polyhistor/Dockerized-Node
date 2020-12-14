@@ -2,6 +2,8 @@ const express = require('express');
 const redis = require('redis');
 
 const app = express();
+/* here Redis tries to reach out to the host name 'redis-server', this will not cause any errors, because docker-compose creates a network between two containers (or two services) and resolves hosts
+between the two */
 const client = redis.createClient({
   host: 'redis-server',
   port: 6379,
